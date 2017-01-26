@@ -13,26 +13,24 @@ I've tried other approaches, without success.
 
 ## Install
 
-1. Double check if the Product and Vendor IDs are the same as i'm using. Run this command:
-`
-system_profiler SPUSBDataType | grep -B 1 0x1050
-`
+#### Double check if the Product and Vendor IDs are the same as i'm using. Run this command:
+```bash
+$ system_profiler SPUSBDataType | grep -B 1 0x1050
 
-Should output
-`
-Product ID: 0x0010
-Vendor ID: 0x1050
-`
-
-If not, edit main.c and change according
+   Product ID: 0x0010
+   Vendor ID: 0x1050
+```
 
 
-2. Install everything in you mac. Run this:
-`
-./install
-`
+   If not the same, edit main.c and change according. (open a GH issue so i can support it)
 
-3. Check if everything is OK. Run:
+
+#### Install everything in you mac. Run this:
+```bash
+$ ./install
+```
+
+#### Check if everything is OK. Run:
 - insert your YubiKey
 - remove it from the USB
 - ... your mac should be locked
@@ -46,3 +44,9 @@ The  plist file will launch the daemon 'yklock' which simply consumes the USB ev
 
 GCSession should be changed to native code
 LaunchEvents and com.apple.iokit.matching should have the detach event
+
+### DEBUG
+You can run the daemon, and see the output
+```bash
+$ $HOME/.yklock/yklock
+````
