@@ -1,0 +1,23 @@
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>org.profundos.yklock</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__HOME__/.yklock/yklock</string>
+    </array>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>WorkingDirectory</key>
+    <string>__HOME__/.yklock</string>
+
+	<key>StandardErrorPath</key>
+	<string>yklock.log</string>
+	<key>StandardOutPath</key>
+	<string>yklock.log</string>
+    
+</dict>
+</plist>
