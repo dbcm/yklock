@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+# install path
+IPATH=$HOME/.yklock
+
+# build dummy bin to remove the event
+echo compiling ...
+xcodebuild -quiet -alltargets
+
+# install dummy bin
+echo installing daemon ...
+mkdir -p $IPATH
+cp build/Release/yklock $IPATH/
+
+# install Event listener
+echo installing service ...
+sed "s!__HOME__!$HOME!" org.profundos.yklock.plist > ~/Library/LaunchAgents/org.profundos.yklock.plist
+
+# listen Events
+echo loading service ...
+launchctl load ~/Library/LaunchAgents/org.profundos.yklock.plist
+
+echo DONE

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#set -e
+
+echo stoping service ...
+launchctl stop org.profundos.yklock
+
+echo unloading ...
+if [ -f $HOME/Library/LaunchAgents/org.profundos.yklock.plist ]; then
+    launchctl unload $HOME/Library/LaunchAgents/org.profundos.yklock.plist
+fi
+
+echo removing service ...
+rm -rf $HOME/Library/LaunchAgents/org.profundos.yklock.plist
+
+echo removing daemon ...
+rm -rf $HOME/.yklock
+
+echo DONE
