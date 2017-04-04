@@ -16,10 +16,11 @@ cp build/Release/yklock $IPATH/
 
 # install Event listener
 echo installing service ...
-sed "s!__HOME__!$HOME!" org.profundos.yklock.plist > ~/Library/LaunchAgents/org.profundos.yklock.plist
+mkdir -p $HOME/Library/LaunchAgents
+sed "s!__HOME__!$HOME!" org.profundos.yklock.plist > $HOME/Library/LaunchAgents/org.profundos.yklock.plist
 
 # listen Events
 echo loading service ...
-launchctl load ~/Library/LaunchAgents/org.profundos.yklock.plist
+launchctl load $HOME/Library/LaunchAgents/org.profundos.yklock.plist
 
 echo DONE
